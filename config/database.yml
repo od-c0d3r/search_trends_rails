@@ -9,7 +9,6 @@ default: &default
 
 development:
   <<: *default
-  database: search_trends_rails_development
 
 test:
   <<: *default
