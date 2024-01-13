@@ -1,0 +1,16 @@
+<div class="bg-yellow-200 w-full">
+  <%= form_with(url: articles_search_path, class:"bg-red-200", method: :get, local: true) do |form| %>
+    <%= form.label :q, "Search by Title:" %>
+    <%= form.text_field :q, value: params[:q] %>
+    <%= form.submit "Search", foucs: true %>
+  <% end %>
+  <div class="bg-green-200 h-[500px] overflow-scroll">
+    <% @articles.each do |article| %>
+      <div>
+        Title: <%= highlight article.title, params[:q] %> <br>
+        Body: <%= highlight article.body, params[:q] %>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
