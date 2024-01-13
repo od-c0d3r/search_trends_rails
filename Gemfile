@@ -53,6 +53,7 @@ gem 'bootsnap', require: false
 
 
 gem 'bonsai-elasticsearch-rails', '~> 7'
+gem 'elasticsearch', '7.10.1'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'faker'
