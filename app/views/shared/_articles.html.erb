@@ -1,0 +1,12 @@
+<div id="search_results" class="h-[500px] overflow-scroll">
+  <% if params[:q].present? %>
+    <div class="my-2"><%= articles.count || 0 %> results</div>
+  <% end %>
+  <% articles.each do |article| %>
+    <div>
+      <b>Title:</b> <%= highlight article.title, params[:q] %> <br>
+      <b>Body:</b> <%= highlight article.body, params[:q] %>
+    </div>
+    <br>
+  <% end %>
+</div>
