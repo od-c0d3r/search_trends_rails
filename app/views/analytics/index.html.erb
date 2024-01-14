@@ -1,36 +1,8 @@
-<div class="w-full">
-  <div class="flex justify-center gap-x-5">
-    <%= link_to 'Search', root_path %> | <%= link_to 'Analytics', analytics_index_path %>
+<div>
+  <div class="flex py-10 gap-x-10">
+    <%= render partial: 'shared/last_searched', locals: { last_searched: @last_searched } %>
+    <%= render partial: 'shared/most_searched', locals: { most_searched: @most_searched} %>
   </div>
-  <div class="flex bg-red-200">
-    <div class="w-1/2">
-      <h1 class="text-xl leading-8 font-bold" >Last Searched</h1>
-      <% unless @last_searched.present? %>
-        <i>No Data</i>
-      <% end %>
-      <% @last_searched.each do |log| %>
-        <%= log.user_ip %> | <%= log.term %> | <%= log.created_at %> <br>
-      <% end %>
-    </div>
-    <div class="w-1/2 bg-yellow-200">
-      <h1 class="text-xl leading-8 font-bold" >Most Searched</h1>
-      <% unless @most_searched.present? %>
-        <i>No Data</i>
-      <% end %>
-      <% @most_searched.each do |log| %>
-        <%= log[:term] %> | <%= log[:hit_count] %> <br>
-      <% end %>
-    </div>
+  <div class="w-1/2 pr-5">
+    <%= render partial: 'shared/trending', locals: { last_hour: @last_hour , last_day: @last_day, last_week: @last_week, last_month: @last_month } %>
   </div>
-  <div class="bg-green-200">
-    <h1 class="text-xl leading-8 font-bold" >Trending</h1>
-    <% if @last_hour_trending_term %>
-      Last hour  | <%= @last_hour_trending_term.term %> | <%= @last_hour_trending_term.hit_count %> <br>
-      Last day | <%= @last_24_hours_trending_term.term %> | <%= @last_24_hours_trending_term.hit_count %> <br>
-      Last week | <%= @last_week_trending_term.term %> | <%= @last_week_trending_term.hit_count %> <br>
-      Last month | <%= @last_month_trending_term.term %> | <%= @last_month_trending_term.hit_count %> <br>
-    <% else %>
-      <i>No Data</i>
-    <% end %>
-  </div>
-</div>

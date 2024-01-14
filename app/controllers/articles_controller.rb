@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   def search
+    @active_tab = 'search'
     @articles = if params[:q].present?
                   SearchLog.create(user_ip: request.remote_ip, term: params[:q])
 

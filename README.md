@@ -21,6 +21,7 @@
 ## Future Improvements
 
 With extra available time we could:
+- Refactor code.
 - Use Sidekiq jobs to perform database calls to avoid request flow interuption and provide scaleabilty.
 - Use ActionCable to broadcast analytics to view it on realtime.
 - Finish and Enhance planed UI/UX.

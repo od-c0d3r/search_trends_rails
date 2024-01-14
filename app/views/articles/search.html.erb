@@ -1,10 +1,8 @@
-<div class="w-full">
-  <div class="flex justify-center gap-x-5">
-    <%= link_to 'Search', root_path %> | <%= link_to 'Analytics', analytics_index_path %>
-  </div>
-  <%= form_with(url: articles_search_path, method: :get, class: 'flex gap-x-5', data: { turbo_frame: 'search_results', turbo_action: "advance", controller: 'search'}) do |form| %>
-    <%= form.text_field :q, value: params[:q], data: { action: 'input->search#action'}, autofocus: true %>
-    <%= form.submit "Search", class:'bg-yellow-200 px-5 hover:bg-yellow-500', foucs: true %>
+<div class="w-full pt-32">
+  <p class="text-center text-4xl py-5 font-serif">I'm looking for ...</p>
+  <%= form_with(url: articles_search_path, method: :get, class: 'flex justify-center gap-x-5', data: { turbo_frame: 'search_results', turbo_action: "advance", controller: 'search'}) do |form| %>
+    <%= form.text_field :q, value: params[:q], class:'rounded-xl', data: { action: 'input->search#action'}, autofocus: true %>
+    <%= form.submit "Search", class:'bg-gray-900 text-white px-7 hover:bg-gray-200 rounded-lg hover:text-black', foucs: true %>
   <% end %>
   <%= turbo_frame_tag 'search_results' do %>
     <%= render 'shared/articles', articles: @articles %>

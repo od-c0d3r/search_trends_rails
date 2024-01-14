@@ -1,0 +1,69 @@
+
+<h1 class="text-xl font-bold py-2 bg-gray-100 pl-5 rounded-lg" >Trending</h1>
+<% if last_hour %>
+  <div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-900 uppercase dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Term
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Total Hits
+          </th>
+          <th scope="col" class="px-6 py-3">
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-white dark:bg-gray-800">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= last_hour.term %>
+          </th>
+          <td class="px-6 py-4">
+            <%= last_hour.hit_count %>
+          </td>
+          <td class="px-6 py-4">
+            <i class="text-slate-400">Last hour</i>
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-gray-800">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= last_day.term %>
+          </th>
+          <td class="px-6 py-4">
+            <%= last_day.hit_count %>
+          </td>
+          <td class="px-6 py-4">
+            <i class="text-slate-400">Last day</i>
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-gray-800">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= last_week.term %>
+          </th>
+          <td class="px-6 py-4">
+            <%= last_week.hit_count %>
+          </td>
+          <td class="px-6 py-4">
+            <i class="text-slate-400">Last week</i>
+          </td>
+        </tr>
+        <tr class="bg-white dark:bg-gray-800">
+          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            <%= last_month.term %>
+          </th>
+          <td class="px-6 py-4">
+            <%= last_month.hit_count %>
+          </td>
+          <td class="px-6 py-4">
+            <i class="text-slate-400">Last month</i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <i>No Data</i>
+<% end %>
+</div>
